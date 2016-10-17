@@ -22,7 +22,9 @@ let API = {
     search: uninitializedRequest.bind('search'),
     streams: uninitializedRequest.bind('streams'),
     ingests: uninitializedRequest.bind('ingests'),
-    teams: uninitializedRequest.bind('teams'),
+    teams: uninitializedRequest.bind('teams')
+};
+let twitchRequest = {
     setApiKey
 };
 
@@ -72,6 +74,10 @@ function setApiKey(key) {
         .then(() => {
             uninitializedRequests.forEach(_request => _request());
         });
+}
+
+export {
+    twitchRequest
 }
 
 export default API
