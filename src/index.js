@@ -1,5 +1,3 @@
 import twitch from './twitch';
 
-export default {
-    twitch
-};
+export default twitch;
