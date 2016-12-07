@@ -17,8 +17,8 @@ function uninitializedRequest(path, query) {
 }
 
 let API = {
-    user: uninitializedRequest.bind('user'),
-    channel: uninitializedRequest.bind('channel'),
+    users: uninitializedRequest.bind('users'),
+    channels: uninitializedRequest.bind('channels'),
     search: uninitializedRequest.bind('search'),
     streams: uninitializedRequest.bind('streams'),
     ingests: uninitializedRequest.bind('ingests'),
@@ -40,7 +40,13 @@ function _initialize() {
                 if (!response._links.hasOwnProperty(key)) {
                     continue;
                 }
-                API[key] = _buildApiRequest(response._links[key]);
+                
+                let link = response._links[key];
+                if(['users', 'channels'].includes(key) && link[link.length - 1] !== 's') {
+                    link += 's';
+                }
+
+                API[key] = _buildApiRequest(link);
             }
         });
 }
