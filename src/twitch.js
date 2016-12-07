@@ -42,7 +42,7 @@ function _initialize() {
                 }
                 
                 let link = response._links[key];
-                if(['users', 'channels'].includes(key) && link[link.length - 1] !== 's') {
+                if(['user', 'channel'].includes(key) && link[link.length - 1] !== 's') {
                     link += 's';
                 }
 
