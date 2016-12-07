@@ -1,6 +1,6 @@
 {
   "name": "mrdandandan-twitch-module",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Basic interactions with twitch api",
   "main": "dist/index.js",
   "scripts": {
